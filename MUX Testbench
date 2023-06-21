@@ -2,9 +2,9 @@ module mux_16x1_test;
 reg[15:0] in;
 reg[3:0] sel;
 wire out;
-mux_16x1 uut(.in(in),.sel(sel),.out(out));
+mux_16x1 dut(.in(in),.sel(sel),.out(out));
 initial begin
-$monitor($time,"in=%16b,sel=%4b,out=%b \n",in,sel,out);
+$monitor($time,"in=%b,sel=%b,out=%b \n",in,sel,out);
 #20 in = 876; sel = 1;
 #20 sel=3;
 #20 sel=4;
