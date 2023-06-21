@@ -1,0 +1,26 @@
+`timescale 10ns/ 1ns
+module full_adder_test;
+	reg A,B,Cin;
+	wire S,Cout;
+	
+	full_adder dut(.A(A),.B(B),.Cin(Cin),.S(S),.Cout(Cout));
+	
+	initial begin
+	A=1'b0;
+	B=1'b0;
+	Cin=1'b0;
+	
+	#2 A=1'b1;
+	#2 B=1'b1;
+	#2 Cin=1'b1;
+	#4;
+	end
+	 
+	initial begin
+	$monitor("A=%b,B=%b,Cin=%b,S=%b,Cout=%b ",A,B,Cin,S,Cout);
+	end
+  initial begin
+  #100 $finish;
+  end
+  
+endmodule
