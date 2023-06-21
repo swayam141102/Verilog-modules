@@ -1,0 +1,10 @@
+module full_adder(S,Cout,A,B,Cin);
+	input A,B,Cin;
+	output S,Cout;
+	wire t1,t2,t3;
+	xor(t1,A,B);
+	xor(S,t1,Cin);
+	and(t2,t1,Cin);
+	and(t3,A,B);
+	or(Cout,t2,t3);
+endmodule
