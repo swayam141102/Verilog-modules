@@ -1,0 +1,23 @@
+module tb;
+reg x,clk,rst;
+wire z;
+
+
+
+seq_detector DUT(x,clk,rst,z);
+initial begin
+	
+  $monitor($time,"clk=%b,input=%b , output=%b",clk,x,z);
+	clk=0; rst=1;
+	#17 rst=0;
+end
+always #5 clk=~clk;
+
+initial begin
+	#10 x=0; #10 x=0; #10 x=1; #10 x=1; 
+	#10 x=0; #10 x=1; #10 x=0; #10 x=1;
+	#10 x=0; #10 x=1; #10 x=1; #10 x=0;
+	#10 $finish;
+end
+endmodule
+	
